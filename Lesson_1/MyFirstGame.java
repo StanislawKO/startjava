@@ -2,9 +2,8 @@ public class MyFirstGame {
     public static void main(String[] args) {
         int number = 20;
         int guess = 10;
-        boolean result = true;
 
-        while (result) {
+        while (true) {
             if (guess != number) {
                 if (guess > number) {
                     System.out.println("Введенное вами число больше того, что загадал компьютер");
@@ -14,9 +13,9 @@ public class MyFirstGame {
                     guess++;
                 }
             } else {
-                System.out.println("Вы угадали!");
-                result = false;
+                break;
             }
         }
+        System.out.println("Вы угадали!");
     }
 }
