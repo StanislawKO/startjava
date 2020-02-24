@@ -3,29 +3,27 @@ import java.util.Scanner;
 public class CalculatorTest {
 
     public static void main(String[] args) {
-        while (true) {
-            Calculator calculator = new Calculator();
+        Calculator calculator = new Calculator();
+        Scanner scanner = new Scanner(System.in);
+
+        String answer = "да";
+        while (answer.equals("да")) {
             System.out.print("Введите первое число: ");
-            Scanner scanFirstNumber = new Scanner(System.in);
-            int firstNumber = scanFirstNumber.nextInt();
+            int firstNumber = scanner.nextInt();
             calculator.setFirstNumber(firstNumber);
             System.out.print("Введите знак математической операции: ");
-            Scanner scanSign = new Scanner(System.in);
-            char sign = scanSign.nextLine().charAt(0);
+            char sign = scanner.next().charAt(0);
+            calculator.setSign(sign);
             System.out.print("Введите второе число: ");
-            Scanner scanSecondNumber = new Scanner(System.in);
-            int secondNumber = scanSecondNumber.nextInt();
+            int secondNumber = scanner.nextInt();
             calculator.setSecondNumber(secondNumber);
 
-            calculator.calc(sign);
+            calculator.calculate();
 
-            System.out.print("Хотите продолжить? [да/нет]: ");
-            Scanner scanAnswer = new Scanner(System.in);
-            String answer = scanAnswer.nextLine();
-
-            if (answer.equals("нет")) {
-                break;
-            }
+            do {
+                System.out.print("Хотите продолжить? [да/нет]: ");
+                answer = scanner.next();
+            } while (!answer.equals("да") && !answer.equals("нет"));
         }
     }
 }
