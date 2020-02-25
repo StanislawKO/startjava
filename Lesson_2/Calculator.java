@@ -17,26 +17,26 @@ public class Calculator {
 
     public void calculate() {
         switch (sign) {
-            case ('+'):
+            case '+':
                 System.out.println(firstNumber + " + " + secondNumber + " = " + (firstNumber + secondNumber));
                 break;
-            case ('-'):
+            case '-':
                 System.out.println(firstNumber + " - " + secondNumber + " = " + (firstNumber - secondNumber));
                 break;
-            case ('*'):
+            case '*':
                 System.out.println(firstNumber + " * " + secondNumber + " = " + (firstNumber * secondNumber));
                 break;
-            case ('/'):
+            case '/':
                 System.out.println(firstNumber + " / " + secondNumber + " = " + (firstNumber / secondNumber));
                 break;
-            case ('^'):
+            case '^':
                 long result = 1;
                 for (int i = 0; i < secondNumber; i++) {
                     result *= firstNumber;
                 }
                 System.out.println(firstNumber + " ^ " + secondNumber + " = " + result);
                 break;
-            case ('%'):
+            case '%':
                 System.out.println(firstNumber + " % " + secondNumber + " = " + (firstNumber % secondNumber));
                 break;
         }
