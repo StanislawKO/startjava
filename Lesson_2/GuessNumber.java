@@ -20,15 +20,23 @@ public class GuessNumber {
             p1.setNumber(scanner.nextInt());
             int fistGuess = p1.getNumber();
             if (fistGuess == number) {
-                System.out.println("Угадал первый игрок!");
+                System.out.println("Угадал первый игрок! " + p1.getName());
                 break;
+            } else if (fistGuess > number) {
+                System.out.println("Введенное вами число больше того, что загадал компьютер");
+            } else {
+                System.out.println("Введенное вами число меньше того, что загадал компьютер");
             }
             System.out.print("Второй угрок вводит число: ");
             p2.setNumber(scanner.nextInt());
             int secondGuess = p2.getNumber();
             if (secondGuess == number) {
-                System.out.println("Угадал второй игрок!");
+                System.out.println("Угадал второй игрок! " + p2.getName());
                 break;
+            } else if (secondGuess > number) {
+                    System.out.println("Введенное вами число больше того, что загадал компьютер");
+            } else {
+                    System.out.println("Введенное вами число меньше того, что загадал компьютер");
             }
         }
     }
