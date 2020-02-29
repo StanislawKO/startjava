@@ -15,32 +15,32 @@ public class GuessNumber {
         Scanner scanner = new Scanner(System.in);
 
         int number = (int) (Math.random() * 101);
-        System.out.println("Загаданное число " + number);
+        System.out.println("Hidden number " + number);
 
         while (true) {
             System.out.println();
-            System.out.print("Первый игрок вводит число: ");
+            System.out.print("The first player enters a number: ");
             p1.setNumber(scanner.nextInt());
             int fistGuess = p1.getNumber();
             if (fistGuess == number) {
-                System.out.println("Угадал первый игрок! " + p1.getName());
+                System.out.println("The first player guessed! " + p1.getName());
                 break;
             } else if (fistGuess > number) {
-                System.out.println("Введенное вами число больше того, что загадал компьютер");
+                System.out.println("The number you entered is greater than what the computer thought");
             } else {
-                System.out.println("Введенное вами число меньше того, что загадал компьютер");
+                System.out.println("The number you entered is less than what the computer thought");
             }
             System.out.println();
-            System.out.print("Второй угрок вводит число: ");
+            System.out.print("The second player enters a number: ");
             p2.setNumber(scanner.nextInt());
             int secondGuess = p2.getNumber();
             if (secondGuess == number) {
-                System.out.println("Угадал второй игрок! " + p2.getName());
+                System.out.println("Guess the second player! " + p2.getName());
                 break;
             } else if (secondGuess > number) {
-                    System.out.println("Введенное вами число больше того, что загадал компьютер");
+                    System.out.println("The number you entered is greater than what the computer thought");
             } else {
-                    System.out.println("Введенное вами число меньше того, что загадал компьютер");
+                    System.out.println("The number you entered is less than what the computer thought");
             }
         }
     }

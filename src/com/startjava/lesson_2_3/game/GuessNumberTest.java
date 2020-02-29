@@ -6,11 +6,11 @@ public class GuessNumberTest {
 
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-        System.out.print("Введите имя первого игрока: ");
+        System.out.print("Enter the name of the first player: ");
         Player p1 = new Player(scanner.nextLine());
-        System.out.print("Введите имя второго игрока: ");
+        System.out.print("Enter the name of the second player: ");
         Player p2 = new Player(scanner.nextLine());
-        System.out.println("Играют " + p1.getName() + " и " + p2.getName());
+        System.out.println("Game " + p1.getName() + " and " + p2.getName());
 
         String answer;
         do {
@@ -18,9 +18,9 @@ public class GuessNumberTest {
             game.startGame();
 
             do {
-                System.out.print("Хотите продолжить? [да/нет]: ");
+                System.out.print("Want to continue? [yes/no]: ");
                 answer = scanner.nextLine();
-            } while (!answer.equals("да") && !answer.equals("нет"));
-        } while (answer.equals("да"));
+            } while (!answer.equals("yes") && !answer.equals("no"));
+        } while (answer.equals("yes"));
     }
 }
