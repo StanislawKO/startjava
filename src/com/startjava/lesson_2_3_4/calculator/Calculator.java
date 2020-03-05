@@ -1,4 +1,4 @@
-package com.startjava.lesson_2_3.calculator;
+package com.startjava.lesson_2_3_4.calculator;
 
 public class Calculator {
     private int firstNumber;
@@ -26,20 +26,16 @@ public class Calculator {
                 System.out.println(firstNumber + " - " + secondNumber + " = " + (firstNumber - secondNumber));
                 break;
             case '*':
-                System.out.println(firstNumber + " * " + secondNumber + " = " + (firstNumber * secondNumber));
+                System.out.println(firstNumber + " * " + secondNumber + " = " + Math.multiplyExact(firstNumber, secondNumber));
                 break;
             case '/':
-                System.out.println(firstNumber + " / " + secondNumber + " = " + (firstNumber / secondNumber));
+                System.out.println(firstNumber + " / " + secondNumber + " = " + Math.subtractExact(firstNumber, secondNumber));
                 break;
             case '^':
-                long result = 1;
-                for (int i = 0; i < secondNumber; i++) {
-                    result *= firstNumber;
-                }
-                System.out.println(firstNumber + " ^ " + secondNumber + " = " + result);
+                System.out.println(firstNumber + " ^ " + secondNumber + " = " + (int) Math.pow(firstNumber, secondNumber));
                 break;
             case '%':
-                System.out.println(firstNumber + " % " + secondNumber + " = " + (firstNumber % secondNumber));
+                System.out.println(firstNumber + " % " + secondNumber + " = " + (int) Math.IEEEremainder(firstNumber, secondNumber));
                 break;
         }
     }

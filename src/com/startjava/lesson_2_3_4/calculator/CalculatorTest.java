@@ -1,4 +1,4 @@
-package com.startjava.lesson_2_3.calculator;
+package com.startjava.lesson_2_3_4.calculator;
 
 import java.util.Scanner;
 
@@ -10,15 +10,15 @@ public class CalculatorTest {
 
         String answer;
         do {
-            System.out.print("Введите первое число: ");
-            int firstNumber = scanner.nextInt();
+            System.out.print("Введите математическое выражение: ");
+            String mathematicalExpression = scanner.nextLine();
+            String[] array = mathematicalExpression.split(" ");
+            int firstNumber = Integer.parseInt(array[0]);
             calculator.setFirstNumber(firstNumber);
-            System.out.print("Введите знак математической операции: ");
-            char sign = scanner.next().charAt(0);
-            calculator.setSign(sign);
-            System.out.print("Введите второе число: ");
-            int secondNumber = scanner.nextInt();
+            int secondNumber = Integer.parseInt(array[2]);
             calculator.setSecondNumber(secondNumber);
+            char sign = array[1].charAt(0);
+            calculator.setSign(sign);
 
             calculator.calculate();
 
