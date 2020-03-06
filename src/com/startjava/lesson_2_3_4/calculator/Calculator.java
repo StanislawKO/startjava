@@ -5,19 +5,11 @@ public class Calculator {
     private int secondNumber;
     private char sign;
 
-    public void setFirstNumber(int firstNumber) {
-        this.firstNumber = firstNumber;
-    }
+    public void calculate(String[] splitMathExpression) {
+        firstNumber = Integer.parseInt(splitMathExpression[0]);
+        secondNumber = Integer.parseInt(splitMathExpression[2]);
+        sign = splitMathExpression[1].charAt(0);
 
-    public void setSecondNumber(int secondNumber) {
-        this.secondNumber = secondNumber;
-    }
-
-    public void setSign(char sign) {
-        this.sign = sign;
-    }
-
-    public void calculate() {
         switch (sign) {
             case '+':
                 System.out.println(firstNumber + " + " + secondNumber + " = " + (firstNumber + secondNumber));

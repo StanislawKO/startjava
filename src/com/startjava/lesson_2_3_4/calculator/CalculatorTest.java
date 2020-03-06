@@ -11,16 +11,9 @@ public class CalculatorTest {
         String answer;
         do {
             System.out.print("Введите математическое выражение: ");
-            String mathematicalExpression = scanner.nextLine();
-            String[] array = mathematicalExpression.split(" ");
-            int firstNumber = Integer.parseInt(array[0]);
-            calculator.setFirstNumber(firstNumber);
-            int secondNumber = Integer.parseInt(array[2]);
-            calculator.setSecondNumber(secondNumber);
-            char sign = array[1].charAt(0);
-            calculator.setSign(sign);
-
-            calculator.calculate();
+            String srcMathExpression = scanner.nextLine();
+            String[] splitMathExpression = srcMathExpression.split(" ");
+            calculator.calculate(splitMathExpression);
 
             do {
                 System.out.print("Хотите продолжить? [да/нет]: ");
