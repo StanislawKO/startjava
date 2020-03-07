@@ -18,6 +18,7 @@ public class CalculatorTest {
             do {
                 System.out.print("Хотите продолжить? [да/нет]: ");
                 answer = scanner.next();
+                scanner.nextLine();
             } while (!answer.equals("да") && !answer.equals("нет"));
         } while (answer.equals("да"));
     }

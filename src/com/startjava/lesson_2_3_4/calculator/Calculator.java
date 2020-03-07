@@ -15,13 +15,13 @@ public class Calculator {
                 System.out.println(firstNumber + " + " + secondNumber + " = " + (firstNumber + secondNumber));
                 break;
             case '-':
-                System.out.println(firstNumber + " - " + secondNumber + " = " + (firstNumber - secondNumber));
+                System.out.println(firstNumber + " - " + secondNumber + " = " + Math.subtractExact(firstNumber, secondNumber));
                 break;
             case '*':
                 System.out.println(firstNumber + " * " + secondNumber + " = " + Math.multiplyExact(firstNumber, secondNumber));
                 break;
             case '/':
-                System.out.println(firstNumber + " / " + secondNumber + " = " + Math.subtractExact(firstNumber, secondNumber));
+                System.out.println(firstNumber + " / " + secondNumber + " = " + (firstNumber / secondNumber));
                 break;
             case '^':
                 System.out.println(firstNumber + " ^ " + secondNumber + " = " + (int) Math.pow(firstNumber, secondNumber));
