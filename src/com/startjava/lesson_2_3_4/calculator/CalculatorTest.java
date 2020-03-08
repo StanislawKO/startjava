@@ -13,12 +13,11 @@ public class CalculatorTest {
             System.out.print("Введите математическое выражение: ");
             String srcMathExpression = scanner.nextLine();
             String[] splitMathExpression = srcMathExpression.split(" ");
-            calculator.calculate(splitMathExpression);
+            System.out.println(calculator.calculate(splitMathExpression));
 
             do {
                 System.out.print("Хотите продолжить? [да/нет]: ");
-                answer = scanner.next();
-                scanner.nextLine();
+                answer = scanner.nextLine();
             } while (!answer.equals("да") && !answer.equals("нет"));
         } while (answer.equals("да"));
     }

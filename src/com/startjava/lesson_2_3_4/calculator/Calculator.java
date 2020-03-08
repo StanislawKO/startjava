@@ -5,30 +5,32 @@ public class Calculator {
     private int secondNumber;
     private char sign;
 
-    public void calculate(String[] splitMathExpression) {
+    public String calculate(String[] splitMathExpression) {
         firstNumber = Integer.parseInt(splitMathExpression[0]);
         secondNumber = Integer.parseInt(splitMathExpression[2]);
         sign = splitMathExpression[1].charAt(0);
+        String str = "";
 
         switch (sign) {
             case '+':
-                System.out.println(firstNumber + " + " + secondNumber + " = " + (firstNumber + secondNumber));
+                str = firstNumber + " + " + secondNumber + " = " + (firstNumber + secondNumber);
                 break;
             case '-':
-                System.out.println(firstNumber + " - " + secondNumber + " = " + Math.subtractExact(firstNumber, secondNumber));
+                str = firstNumber + " - " + secondNumber + " = " + Math.subtractExact(firstNumber, secondNumber);
                 break;
             case '*':
-                System.out.println(firstNumber + " * " + secondNumber + " = " + Math.multiplyExact(firstNumber, secondNumber));
+                str = firstNumber + " * " + secondNumber + " = " + Math.multiplyExact(firstNumber, secondNumber);
                 break;
             case '/':
-                System.out.println(firstNumber + " / " + secondNumber + " = " + (firstNumber / secondNumber));
+                str = firstNumber + " / " + secondNumber + " = " + (firstNumber / secondNumber);
                 break;
             case '^':
-                System.out.println(firstNumber + " ^ " + secondNumber + " = " + (int) Math.pow(firstNumber, secondNumber));
+                str = firstNumber + " ^ " + secondNumber + " = " + (int) Math.pow(firstNumber, secondNumber);
                 break;
             case '%':
-                System.out.println(firstNumber + " % " + secondNumber + " = " + (int) Math.IEEEremainder(firstNumber, secondNumber));
+                str = firstNumber + " % " + secondNumber + " = " + (int) Math.IEEEremainder(firstNumber, secondNumber);
                 break;
         }
+        return str;
     }
 }
