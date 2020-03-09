@@ -8,7 +8,7 @@ public class GuessNumber {
     private Player p2;
     private Scanner scanner = new Scanner(System.in);
     private int number = (int) (Math.random() * 101);
-    boolean isTrue = true;
+    boolean isNumberGuessed = true;
 
     public GuessNumber(Player p1, Player p2) {
         this.p1 = p1;
@@ -18,14 +18,16 @@ public class GuessNumber {
     public void startGame() {
         System.out.println("Загаданное число " + number);
 
-        while (isTrue) {
-            guessGame("Первый", p1);
-            if (!isTrue) {
+        while (isNumberGuessed) {
+            enteringNumber("Первый", p1);
+            checkingNumber("Первый", p1);
+            if (!isNumberGuessed) {
                 break;
             }
 
-            guessGame("Второй", p2);
-            if (!isTrue) {
+            enteringNumber("Второй", p2);
+            checkingNumber("Второй", p2);
+            if (!isNumberGuessed) {
                 break;
             }
         }
@@ -42,17 +44,19 @@ public class GuessNumber {
         System.out.println(Arrays.toString(numberCopy));
     }
 
-    public boolean guessGame(String str, Player p) {
+    public void enteringNumber(String str, Player p) {
         System.out.println();
         System.out.print(str + " игрок вводит число: ");
         int attempt = scanner.nextInt();
         p.setNumber(attempt);
-        p.setEnteredNumbers(attempt);
-        int enteredNumber = p.getNumber();
-        if (enteredNumber == number) {
+        p.setEnteredNumber(attempt);
+    }
+
+    public boolean checkingNumber(String str, Player p) {
+        if (p.getNumber() == number) {
             System.out.println("Игрок " + p.getName() + " угадал число " + number + " с " + (p.getCount() + 1) + " попытки");
-            isTrue = false;
-        } else if (enteredNumber > number) {
+            isNumberGuessed = false;
+        } else if (p.getNumber() > number) {
             System.out.println("Введенное вами число больше того, что загадал компьютер");
         } else {
             System.out.println("Введенное вами число меньше того, что загадал компьютер");
@@ -60,12 +64,12 @@ public class GuessNumber {
         if (p.getCount() == 9) {
             System.out.println("У " + p.getName() + " закончились попытки");
             if (str.equals("Второй")) {
-                isTrue = false;
+                isNumberGuessed = false;
             }
         }
         int countP = p.getCount();
         p.setCount(++countP);
 
-        return isTrue;
+        return isNumberGuessed;
     }
 }

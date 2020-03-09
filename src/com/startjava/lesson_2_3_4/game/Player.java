@@ -25,11 +25,12 @@ public class Player {
     }
 
     public int[] getEnteredNumbers() {
-        return enteredNumbers;
+        int[] enteredNumbersCopy = Arrays.copyOf(enteredNumbers, count);
+        return enteredNumbersCopy;
     }
 
-    public void setEnteredNumbers(int guess) {
-        this.enteredNumbers[count] = guess;
+    public void setEnteredNumber(int number) {
+        this.enteredNumbers[count] = number;
     }
 
     public int getCount() {

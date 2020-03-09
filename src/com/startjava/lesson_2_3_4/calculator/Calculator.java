@@ -9,28 +9,22 @@ public class Calculator {
         firstNumber = Integer.parseInt(splitMathExpression[0]);
         secondNumber = Integer.parseInt(splitMathExpression[2]);
         sign = splitMathExpression[1].charAt(0);
-        String str = "";
 
         switch (sign) {
             case '+':
-                str = firstNumber + " + " + secondNumber + " = " + (firstNumber + secondNumber);
-                break;
+                return firstNumber + " + " + secondNumber + " = " + (firstNumber + secondNumber);
             case '-':
-                str = firstNumber + " - " + secondNumber + " = " + Math.subtractExact(firstNumber, secondNumber);
-                break;
+                return firstNumber + " - " + secondNumber + " = " + Math.subtractExact(firstNumber, secondNumber);
             case '*':
-                str = firstNumber + " * " + secondNumber + " = " + Math.multiplyExact(firstNumber, secondNumber);
-                break;
+                return firstNumber + " * " + secondNumber + " = " + Math.multiplyExact(firstNumber, secondNumber);
             case '/':
-                str = firstNumber + " / " + secondNumber + " = " + (firstNumber / secondNumber);
-                break;
+                return firstNumber + " / " + secondNumber + " = " + (firstNumber / secondNumber);
             case '^':
-                str = firstNumber + " ^ " + secondNumber + " = " + (int) Math.pow(firstNumber, secondNumber);
-                break;
+                return firstNumber + " ^ " + secondNumber + " = " + (int) Math.pow(firstNumber, secondNumber);
             case '%':
-                str = firstNumber + " % " + secondNumber + " = " + (int) Math.IEEEremainder(firstNumber, secondNumber);
-                break;
+                return firstNumber + " % " + secondNumber + " = " + (int) Math.IEEEremainder(firstNumber, secondNumber);
+            default:
+                 return "Указан неправильный знак математической операции.";
         }
-        return str;
     }
 }
