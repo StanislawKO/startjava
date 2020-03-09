@@ -16,8 +16,7 @@ public class Player {
     }
 
     public int[] getEnteredNumbers() {
-        int[] enteredNumbersCopy = Arrays.copyOf(enteredNumbers, count);
-        return enteredNumbersCopy;
+        return Arrays.copyOf(enteredNumbers, count);
     }
 
     public void setEnteredNumber(int number) {
