@@ -4,7 +4,6 @@ import java.util.Arrays;
 
 public class Player {
     private String name;
-    private int number;
     private int[] enteredNumbers = new int[10];
     private int count = 0;
 
@@ -14,14 +13,6 @@ public class Player {
 
     public String getName() {
         return name;
-    }
-
-    public int getNumber() {
-        return number;
-    }
-
-    public void setNumber(int number) {
-        this.number = number;
     }
 
     public int[] getEnteredNumbers() {

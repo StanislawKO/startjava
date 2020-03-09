@@ -8,7 +8,8 @@ public class GuessNumber {
     private Player p2;
     private Scanner scanner = new Scanner(System.in);
     private int number = (int) (Math.random() * 101);
-    boolean isNumberGuessed = true;
+    private int attempt;
+    private boolean isNumberGuessed = true;
 
     public GuessNumber(Player p1, Player p2) {
         this.p1 = p1;
@@ -47,16 +48,15 @@ public class GuessNumber {
     public void enteringNumber(String str, Player p) {
         System.out.println();
         System.out.print(str + " игрок вводит число: ");
-        int attempt = scanner.nextInt();
-        p.setNumber(attempt);
+        attempt = scanner.nextInt();
         p.setEnteredNumber(attempt);
     }
 
     public boolean checkingNumber(String str, Player p) {
-        if (p.getNumber() == number) {
+        if (attempt == number) {
             System.out.println("Игрок " + p.getName() + " угадал число " + number + " с " + (p.getCount() + 1) + " попытки");
             isNumberGuessed = false;
-        } else if (p.getNumber() > number) {
+        } else if (attempt > number) {
             System.out.println("Введенное вами число больше того, что загадал компьютер");
         } else {
             System.out.println("Введенное вами число меньше того, что загадал компьютер");
