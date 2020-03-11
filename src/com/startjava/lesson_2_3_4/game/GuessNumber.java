@@ -22,14 +22,14 @@ public class GuessNumber {
         while (isNumberGuessed) {
             enterNumber(player1);
             compareNumbers(player1);
-            checkAttempt("Первый", player1);
+            checkAttempt(player1);
             if (!isNumberGuessed) {
                 break;
             }
 
             enterNumber(player2);
             compareNumbers(player2);
-            checkAttempt("Второй", player2);
+            checkAttempt(player2);
             if (!isNumberGuessed) {
                 break;
             }
@@ -62,12 +62,9 @@ public class GuessNumber {
         return isNumberGuessed;
     }
 
-    public boolean checkAttempt(String str, Player player) {
+    public boolean checkAttempt(Player player) {
         if (player.getCount() == 9) {
             System.out.println("У " + player.getName() + " закончились попытки");
-            if (str.equals("Второй")) {
-                isNumberGuessed = false;
-            }
         }
         int countP = player.getCount();
         player.setCount(++countP);
