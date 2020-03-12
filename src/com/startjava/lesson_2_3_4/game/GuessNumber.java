@@ -63,8 +63,9 @@ public class GuessNumber {
     }
 
     public boolean checkAttempt(Player player) {
-        if (player.getCount() == 9) {
+        if (player.getCount() == 10) {
             System.out.println("У " + player.getName() + " закончились попытки");
+            return isNumberGuessed = false;
         }
 
         return isNumberGuessed;
