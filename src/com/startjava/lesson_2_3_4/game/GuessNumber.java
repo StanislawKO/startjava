@@ -19,12 +19,12 @@ public class GuessNumber {
         System.out.println("Загаданное число " + number);
 
         while (isNumberGuessed) {
-            enterCompareCheckNumbers(player1);
+            isNumberGuessed = makeMove(player1);
             if (!isNumberGuessed) {
                 break;
             }
 
-            enterCompareCheckNumbers(player2);
+            isNumberGuessed = makeMove(player2);
             if (!isNumberGuessed) {
                 break;
             }
@@ -37,20 +37,20 @@ public class GuessNumber {
         player2.clear();
     }
 
-    public void enterCompareCheckNumbers(Player player) {
+    private boolean makeMove(Player player) {
         enterNumber(player);
-        isNumberGuessed = compareNumbers(player);
-        checkAttempt(player);
+        return compareNumbers(player) && checkAttempt(player);
     }
 
-    public void enterNumber(Player player) {
+    private void enterNumber(Player player) {
         System.out.println();
         System.out.print(player.getName() + " игрок вводит число: ");
         player.setEnteredNumber(scanner.nextInt());
     }
 
-    public boolean compareNumbers(Player player) {
-        if (player.getEnteredNumbers()[player.getEnteredNumbers().length - 1] == number) {
+    private boolean compareNumbers(Player player) {
+        int[] enteredNumber = player.getEnteredNumbers();
+        if (enteredNumber[enteredNumber.length - 1] == number) {
             System.out.println("Игрок " + player.getName() + " угадал число " + number + " с " + player.getCount() + " попытки");
             return false;
         } else if (player.getEnteredNumbers()[player.getEnteredNumbers().length - 1] > number) {
@@ -62,16 +62,15 @@ public class GuessNumber {
         return true;
     }
 
-    public boolean checkAttempt(Player player) {
+    private boolean checkAttempt(Player player) {
         if (player.getCount() == 10) {
             System.out.println("У " + player.getName() + " закончились попытки");
             return isNumberGuessed = false;
         }
-
         return isNumberGuessed;
     }
 
-    public void printNumbers(Player player) {
+    private void printNumbers(Player player) {
         int[] numbers = player.getEnteredNumbers();
         System.out.println(Arrays.toString(numbers));
     }

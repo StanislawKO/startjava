@@ -21,15 +21,11 @@ public class Player {
 
     public void setEnteredNumber(int number) {
         this.enteredNumbers[count] = number;
-        incCount(count);
+        count++;
     }
 
     public int getCount() {
         return count;
-    }
-
-    private void incCount(int count) {
-        this.count = ++count;
     }
 
     public void clear() {
