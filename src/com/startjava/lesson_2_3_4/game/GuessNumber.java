@@ -50,7 +50,7 @@ public class GuessNumber {
         if (enteredNumber == number) {
             System.out.println("Игрок " + player.getName() + " угадал число " + number + " с " + player.getCount() + " попытки");
             return false;
-        } else if (player.getEnteredNumbers()[player.getEnteredNumbers().length - 1] > number) {
+        } else if (enteredNumber > number) {
             System.out.println("Введенное вами число больше того, что загадал компьютер");
         } else {
             System.out.println("Введенное вами число меньше того, что загадал компьютер");
