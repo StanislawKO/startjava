@@ -36,7 +36,7 @@ public class GuessNumber {
 
     private boolean makeMove(Player player) {
         enterNumber(player);
-        return compareNumbers(player) && checkAttempt(player);
+        return compareNumbers(player) && checkAttempt();
     }
 
     private void enterNumber(Player player) {
@@ -59,9 +59,11 @@ public class GuessNumber {
         return true;
     }
 
-    private boolean checkAttempt(Player player) {
-        if (player.getCount() == 10) {
-            System.out.println("У " + player.getName() + " закончились попытки");
+    private boolean checkAttempt() {
+        if (player1.getCount() == 10 && player2.getCount() < 10) {
+            System.out.println("У " + player1.getName() + " закончились попытки");
+        } else if (player2.getCount() == 10) {
+            System.out.println("У " + player2.getName() + " закончились попытки");
             return false;
         }
         return true;
