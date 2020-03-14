@@ -17,7 +17,7 @@ public class GuessNumber {
     public void startGame() {
         System.out.println("Загаданное число " + number);
 
-        while (makeMove(player1) && makeMove(player2)) {
+        while (checkAttempt()) {
             if (!makeMove(player1)) {
                 break;
             }
@@ -36,7 +36,7 @@ public class GuessNumber {
 
     private boolean makeMove(Player player) {
         enterNumber(player);
-        return compareNumbers(player) && checkAttempt();
+        return compareNumbers(player);
     }
 
     private void enterNumber(Player player) {
