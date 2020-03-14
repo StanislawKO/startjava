@@ -20,7 +20,7 @@ public class Player {
     }
 
     public void setEnteredNumber(int number) {
-        this.enteredNumbers[count] = number;
+        enteredNumbers[count] = number;
         count++;
     }
 
@@ -30,6 +30,6 @@ public class Player {
 
     public void clear() {
         Arrays.fill(enteredNumbers, 0, count, 0);
-        this.count = 0;
+        count = 0;
     }
 }

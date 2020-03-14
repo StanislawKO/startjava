@@ -8,7 +8,6 @@ public class GuessNumber {
     private Player player2;
     private Scanner scanner = new Scanner(System.in);
     private int number = (int) (Math.random() * 101);
-    private boolean isNumberGuessed = true;
 
     public GuessNumber(Player player1, Player player2) {
         this.player1 = player1;
@@ -18,14 +17,12 @@ public class GuessNumber {
     public void startGame() {
         System.out.println("Загаданное число " + number);
 
-        while (isNumberGuessed) {
-            isNumberGuessed = makeMove(player1);
-            if (!isNumberGuessed) {
+        while (makeMove(player1) && makeMove(player2)) {
+            if (!makeMove(player1)) {
                 break;
             }
 
-            isNumberGuessed = makeMove(player2);
-            if (!isNumberGuessed) {
+            if (!makeMove(player2)) {
                 break;
             }
         }
@@ -49,8 +46,8 @@ public class GuessNumber {
     }
 
     private boolean compareNumbers(Player player) {
-        int[] enteredNumber = player.getEnteredNumbers();
-        if (enteredNumber[enteredNumber.length - 1] == number) {
+        int enteredNumber = player.getEnteredNumbers()[player.getEnteredNumbers().length - 1];
+        if (enteredNumber == number) {
             System.out.println("Игрок " + player.getName() + " угадал число " + number + " с " + player.getCount() + " попытки");
             return false;
         } else if (player.getEnteredNumbers()[player.getEnteredNumbers().length - 1] > number) {
@@ -65,9 +62,9 @@ public class GuessNumber {
     private boolean checkAttempt(Player player) {
         if (player.getCount() == 10) {
             System.out.println("У " + player.getName() + " закончились попытки");
-            return isNumberGuessed = false;
+            return false;
         }
-        return isNumberGuessed;
+        return true;
     }
 
     private void printNumbers(Player player) {
